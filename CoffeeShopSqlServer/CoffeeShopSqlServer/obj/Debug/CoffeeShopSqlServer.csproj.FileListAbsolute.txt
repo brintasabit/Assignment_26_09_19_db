@@ -1,0 +1,10 @@
+D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\bin\Debug\CoffeeShopSqlServer.exe.config
+D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\bin\Debug\CoffeeShopSqlServer.exe
+D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\bin\Debug\CoffeeShopSqlServer.pdb
+D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\obj\Debug\CoffeeShopSqlServer.csprojAssemblyReference.cache
+D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\obj\Debug\CoffeeShopSqlServer.CoffeeShop.resources
+D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\obj\Debug\CoffeeShopSqlServer.Properties.Resources.resources
+D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\obj\Debug\CoffeeShopSqlServer.csproj.GenerateResource.cache
+D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\obj\Debug\CoffeeShopSqlServer.csproj.CoreCompileInputs.cache
+D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\obj\Debug\CoffeeShopSqlServer.exe
+D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\obj\Debug\CoffeeShopSqlServer.pdb
