@@ -16,7 +16,8 @@ namespace CoffeeShopSqlServer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CoffeeShop());
+            //Application.Run(new CoffeeShop());
+            Application.Run(new ItemCoffeeShop());
         }
     }
 }

@@ -31,8 +31,8 @@ namespace CoffeeShopSqlServer
                     SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
 
                     sqlConn.Open();
-                    int isexecuted = sqlCommand.ExecuteNonQuery();
-                    if (isexecuted > 0)
+                    int isExecuted = sqlCommand.ExecuteNonQuery();
+                    if (isExecuted > 0)
                     {
 
                         MessageBox.Show("Saved");
@@ -59,8 +59,8 @@ namespace CoffeeShopSqlServer
                     SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
 
                     sqlConn.Open();
-                    int isexecuted = sqlCommand.ExecuteNonQuery();
-                    if (isexecuted > 0)
+                    int isExecuted = sqlCommand.ExecuteNonQuery();
+                    if (isExecuted > 0)
                     {
 
                         MessageBox.Show("Saved");
@@ -87,8 +87,8 @@ namespace CoffeeShopSqlServer
                     SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
 
                     sqlConn.Open();
-                    int isexecuted = sqlCommand.ExecuteNonQuery();
-                    if (isexecuted > 0)
+                    int isExecuted = sqlCommand.ExecuteNonQuery();
+                    if (isExecuted > 0)
                     {
 
                         MessageBox.Show("Saved");
@@ -270,8 +270,8 @@ namespace CoffeeShopSqlServer
                 string command = @"delete from Customer where ID=" + searchTextBox.Text + "";
                 SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
                 sqlConn.Open();
-                int isexecuted = sqlCommand.ExecuteNonQuery();
-                if (isexecuted > 0)
+                int isExecuted = sqlCommand.ExecuteNonQuery();
+                if (isExecuted > 0)
                 {
                     MessageBox.Show("Information Deleted Successfully!");
                 }

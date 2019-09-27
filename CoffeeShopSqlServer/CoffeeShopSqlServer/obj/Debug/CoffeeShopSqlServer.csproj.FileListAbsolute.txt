@@ -8,3 +8,4 @@ D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\obj\D
 D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\obj\Debug\CoffeeShopSqlServer.csproj.CoreCompileInputs.cache
 D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\obj\Debug\CoffeeShopSqlServer.exe
 D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\obj\Debug\CoffeeShopSqlServer.pdb
+D:\BITM\Git\Assignment_26_09_19_db\CoffeeShopSqlServer\CoffeeShopSqlServer\obj\Debug\CoffeeShopSqlServer.ItemCoffeeShop.resources
