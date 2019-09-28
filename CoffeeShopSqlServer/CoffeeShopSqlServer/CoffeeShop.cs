@@ -142,13 +142,45 @@ namespace CoffeeShopSqlServer
         }
         private void AddButton_Click(object sender, EventArgs e)
         {
-            AddInfo();
-            customerNameTextBox.Text = "";
-            contactTextBox.Text = "";
-            addressTextBox.Text = "";
-            itemComboBox.Text = "Select An Item";
-            quantityTextBox.Text = "";
-            searchTextBox.Text = "";
+            try
+            {
+                string conn = @"Server=BRINTA-PC; Database=CoffeeShop; Integrated Security=true";
+                SqlConnection sqlConn = new SqlConnection(conn);
+                string command = @"select * from Customer where Name='" + customerNameTextBox.Text + "'";
+                SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
+                sqlConn.Open();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
+                {
+                    //purchaseDataGridView.DataSource = dataTable;
+                    MessageBox.Show("Customer Name Already Exists");
+                    customerNameTextBox.Text = "";
+                    contactTextBox.Text = "";
+                    addressTextBox.Text = "";
+                    itemComboBox.Text = "Select An Item";
+                    quantityTextBox.Text = "";
+                    idTextBox.Text = "";
+                }
+                else
+                {
+                    AddInfo();
+                    customerNameTextBox.Text = "";
+                    contactTextBox.Text = "";
+                    addressTextBox.Text = "";
+                    itemComboBox.Text = "Select An Item";
+                    quantityTextBox.Text = "";
+                    idTextBox.Text = "";
+                }
+                sqlConn.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
+           
         }
         private void ShowInfo()
         {
@@ -178,7 +210,7 @@ namespace CoffeeShopSqlServer
             addressTextBox.Text = "";
             itemComboBox.Text = "Select An Item";
             quantityTextBox.Text = "";
-            searchTextBox.Text = "";
+            idTextBox.Text = "";
         }
         private void SearchInfo()
         {
@@ -186,7 +218,7 @@ namespace CoffeeShopSqlServer
             {
                 string conn = @"Server=BRINTA-PC; Database=CoffeeShop; Integrated Security=true";
                 SqlConnection sqlConn = new SqlConnection(conn);
-                string command = @"select * from Customer where ID=" + searchTextBox.Text + "";
+                string command = @"select * from Customer where Name='" + searchTextBox.Text + "'";
                 SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
                 sqlConn.Open();
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -218,7 +250,7 @@ namespace CoffeeShopSqlServer
             addressTextBox.Text = "";
             itemComboBox.Text = "Select An Item";
             quantityTextBox.Text = "";
-            searchTextBox.Text = "";
+            idTextBox.Text = "";
         }
         private void UpdateInfo()
         {
@@ -226,7 +258,7 @@ namespace CoffeeShopSqlServer
             {
                 string conn = @"Server=BRINTA-PC; Database=CoffeeShop; Integrated Security=true";
                 SqlConnection sqlConn = new SqlConnection(conn);
-                string command = @"update Customer set Name='"+customerNameTextBox.Text+"',Contact='"+contactTextBox.Text+"',Address='"+addressTextBox.Text+"',Item='"+itemComboBox.Text+"',Quantity="+quantityTextBox.Text+" where ID="+searchTextBox.Text+"";
+                string command = @"update Customer set Name='"+customerNameTextBox.Text+"',Contact='"+contactTextBox.Text+"',Address='"+addressTextBox.Text+"',Item='"+itemComboBox.Text+"',Quantity="+quantityTextBox.Text+" where ID="+idTextBox.Text+"";
                 SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
                 sqlConn.Open();
                 int isExecuted = sqlCommand.ExecuteNonQuery();
@@ -259,7 +291,7 @@ namespace CoffeeShopSqlServer
             addressTextBox.Text = "";
             itemComboBox.Text = "Select An Item";
             quantityTextBox.Text = "";
-            searchTextBox.Text = "";
+            idTextBox.Text = "";
         }
         private void DeleteInfo()
         {
@@ -267,7 +299,7 @@ namespace CoffeeShopSqlServer
             {
                 string conn = @"Server=BRINTA-PC; Database=CoffeeShop; Integrated Security=true";
                 SqlConnection sqlConn = new SqlConnection(conn);
-                string command = @"delete from Customer where ID=" + searchTextBox.Text + "";
+                string command = @"delete from Customer where ID=" + idTextBox.Text + "";
                 SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
                 sqlConn.Open();
                 int isExecuted = sqlCommand.ExecuteNonQuery();
@@ -296,7 +328,7 @@ namespace CoffeeShopSqlServer
             addressTextBox.Text = "";
             itemComboBox.Text = "Select An Item";
             quantityTextBox.Text = "";
-            searchTextBox.Text = "";
+            idTextBox.Text = "";
         }
     }
 }

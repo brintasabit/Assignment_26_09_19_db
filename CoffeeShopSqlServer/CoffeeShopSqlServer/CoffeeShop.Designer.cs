@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.UpdateButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.idTextBox = new System.Windows.Forms.TextBox();
             this.ShowButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.itemComboBox = new System.Windows.Forms.ComboBox();
@@ -43,10 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.purchaseDataGridView = new System.Windows.Forms.DataGridView();
             this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.SearchButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.UpdateButton = new System.Windows.Forms.Button();
-            this.DeleteButton = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -55,9 +57,11 @@
             // 
             this.groupBox1.Controls.Add(this.DeleteButton);
             this.groupBox1.Controls.Add(this.UpdateButton);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.SearchButton);
             this.groupBox1.Controls.Add(this.searchTextBox);
+            this.groupBox1.Controls.Add(this.idTextBox);
             this.groupBox1.Controls.Add(this.ShowButton);
             this.groupBox1.Controls.Add(this.AddButton);
             this.groupBox1.Controls.Add(this.itemComboBox);
@@ -70,12 +74,58 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(44, 37);
+            this.groupBox1.Location = new System.Drawing.Point(73, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(339, 632);
+            this.groupBox1.Size = new System.Drawing.Size(432, 632);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Customer";
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Location = new System.Drawing.Point(97, 562);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(75, 37);
+            this.DeleteButton.TabIndex = 11;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // UpdateButton
+            // 
+            this.UpdateButton.Location = new System.Drawing.Point(201, 562);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(75, 37);
+            this.UpdateButton.TabIndex = 9;
+            this.UpdateButton.Text = "Update";
+            this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(46, 514);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(26, 20);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "ID";
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.Location = new System.Drawing.Point(235, 429);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(80, 37);
+            this.SearchButton.TabIndex = 10;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.Location = new System.Drawing.Point(129, 511);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(116, 26);
+            this.idTextBox.TabIndex = 8;
             // 
             // ShowButton
             // 
@@ -187,63 +237,33 @@
             // purchaseDataGridView
             // 
             this.purchaseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.purchaseDataGridView.Location = new System.Drawing.Point(443, 47);
+            this.purchaseDataGridView.Location = new System.Drawing.Point(565, 48);
             this.purchaseDataGridView.Name = "purchaseDataGridView";
             this.purchaseDataGridView.RowTemplate.Height = 28;
-            this.purchaseDataGridView.Size = new System.Drawing.Size(1090, 487);
+            this.purchaseDataGridView.Size = new System.Drawing.Size(1092, 475);
             this.purchaseDataGridView.TabIndex = 1;
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(129, 448);
+            this.searchTextBox.Location = new System.Drawing.Point(104, 434);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(116, 26);
             this.searchTextBox.TabIndex = 8;
             // 
-            // SearchButton
+            // label7
             // 
-            this.SearchButton.Location = new System.Drawing.Point(235, 560);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(80, 37);
-            this.SearchButton.TabIndex = 10;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 448);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 20);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "ID";
-            // 
-            // UpdateButton
-            // 
-            this.UpdateButton.Location = new System.Drawing.Point(129, 560);
-            this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Size = new System.Drawing.Size(75, 37);
-            this.UpdateButton.TabIndex = 9;
-            this.UpdateButton.Text = "Update";
-            this.UpdateButton.UseVisualStyleBackColor = true;
-            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.Location = new System.Drawing.Point(25, 560);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(75, 37);
-            this.DeleteButton.TabIndex = 11;
-            this.DeleteButton.Text = "Delete";
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 437);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 20);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Search By";
             // 
             // CoffeeShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1560, 694);
+            this.ClientSize = new System.Drawing.Size(1698, 694);
             this.Controls.Add(this.purchaseDataGridView);
             this.Controls.Add(this.groupBox1);
             this.Name = "CoffeeShop";
@@ -273,9 +293,11 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button SearchButton;
-        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox searchTextBox;
     }
 }
 
