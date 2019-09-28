@@ -23,20 +23,14 @@ namespace CoffeeShopSqlServer
             {
                 string conn = @"Server=BRINTA-PC; Database=CoffeeShop; Integrated Security=true";
                 SqlConnection sqlConn = new SqlConnection(conn);
-                string command1 = @"select * from Item where Name='"+nameTextBox.Text+"'";
-                SqlCommand sqlCommand1 = new SqlCommand(command1,sqlConn);
+                
+                
+                
+                
+                string command = @"insert into Item values('" + nameTextBox.Text + "'," + priceTextBox.Text + ")";
+                SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
                 sqlConn.Open();
-                int executed = sqlCommand1.ExecuteNonQuery();
-                if(executed>0)
-                {
-                    MessageBox.Show("Item Name Already Exists");
-                }
-                else
-                {
-                    string command = @"insert into Item values('" + nameTextBox.Text + "'," + priceTextBox.Text + ")";
-                    SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
-                    
-                    int isExecuted = sqlCommand.ExecuteNonQuery();
+                int isExecuted = sqlCommand.ExecuteNonQuery();
                     if (isExecuted > 0)
                     {
                         MessageBox.Show("Saved");
@@ -52,7 +46,7 @@ namespace CoffeeShopSqlServer
                         MessageBox.Show("Error");
                     }
                     
-                }
+                
                 sqlConn.Close();
 
             }
@@ -63,11 +57,36 @@ namespace CoffeeShopSqlServer
         }
         private void AddButton_Click(object sender, EventArgs e)
         {
-            AddItem();
-            nameTextBox.Text = "";
-            priceTextBox.Text = "";
-            searchTextBox.Text = "";
-            idTextBox.Text = "";
+            try
+            {
+                string conn = @"Server=BRINTA-PC; Database=CoffeeShop; Integrated Security=true";
+                SqlConnection sqlConn = new SqlConnection(conn);
+                string command1 = @"select * from Item where Name like '" + nameTextBox.Text + "'";
+                SqlCommand sqlCommand1 = new SqlCommand(command1, sqlConn);
+                sqlConn.Open();
+                
+                int executed = (int)sqlCommand1.ExecuteScalar();
+                if (executed > 0)
+                {
+                    MessageBox.Show("Item Name Already Exists");
+                    
+                }
+                
+                else
+                {
+                    AddItem();
+                    nameTextBox.Text = "";
+                    priceTextBox.Text = "";
+                    searchTextBox.Text = "";
+                    idTextBox.Text = "";
+                }
+                sqlConn.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
         private void ShowItem()
         {
