@@ -13,6 +13,8 @@ namespace CoffeeShopSqlServer
 {
     public partial class CoffeeShop : Form
     {
+        ItemCoffeeShop itemCoffeeShop = new ItemCoffeeShop();
+        OrderCoffeeShop orderCoffeeShop = new OrderCoffeeShop();
         public CoffeeShop()
         {
             InitializeComponent();
@@ -329,6 +331,27 @@ namespace CoffeeShopSqlServer
             itemComboBox.Text = "Select An Item";
             quantityTextBox.Text = "";
             idTextBox.Text = "";
+        }
+
+        private void InsertItem_Click(object sender, EventArgs e)
+        {
+            if(itemCoffeeShop.IsDisposed)
+            {
+                itemCoffeeShop = new ItemCoffeeShop();
+            }
+            //itemCoffeeShop.MdiParent = this;
+            itemCoffeeShop.Show();
+            itemCoffeeShop.BringToFront();
+        }
+
+        private void OrderedItemButton_Click(object sender, EventArgs e)
+        {
+            if(orderCoffeeShop.IsDisposed)
+            {
+                orderCoffeeShop = new OrderCoffeeShop();
+            }
+            orderCoffeeShop.Show();
+            orderCoffeeShop.BringToFront();
         }
     }
 }

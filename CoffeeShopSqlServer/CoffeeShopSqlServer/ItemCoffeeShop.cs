@@ -13,6 +13,8 @@ namespace CoffeeShopSqlServer
 {
     public partial class ItemCoffeeShop : Form
     {
+        //OrderCoffeeShop orderCoffeeShop = new OrderCoffeeShop();
+       // CoffeeShop coffeeShop = new CoffeeShop();
         public ItemCoffeeShop()
         {
             InitializeComponent();
@@ -267,5 +269,9 @@ namespace CoffeeShopSqlServer
         {
             DeleteItem();
         }
+
+        
+
+       
     }
 }

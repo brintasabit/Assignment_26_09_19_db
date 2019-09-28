@@ -31,8 +31,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.SearchButton = new System.Windows.Forms.Button();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.ShowButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
@@ -47,8 +49,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.purchaseDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.InsertItem = new System.Windows.Forms.Button();
+            this.OrderedItemButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -101,6 +103,15 @@
             this.UpdateButton.UseVisualStyleBackColor = true;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 437);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 20);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Search By";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -119,6 +130,13 @@
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(104, 434);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(116, 26);
+            this.searchTextBox.TabIndex = 8;
             // 
             // idTextBox
             // 
@@ -243,27 +261,33 @@
             this.purchaseDataGridView.Size = new System.Drawing.Size(1092, 475);
             this.purchaseDataGridView.TabIndex = 1;
             // 
-            // searchTextBox
+            // InsertItem
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(104, 434);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(116, 26);
-            this.searchTextBox.TabIndex = 8;
+            this.InsertItem.Location = new System.Drawing.Point(904, 600);
+            this.InsertItem.Name = "InsertItem";
+            this.InsertItem.Size = new System.Drawing.Size(172, 44);
+            this.InsertItem.TabIndex = 2;
+            this.InsertItem.Text = "Insert Item";
+            this.InsertItem.UseVisualStyleBackColor = true;
+            this.InsertItem.Click += new System.EventHandler(this.InsertItem_Click);
             // 
-            // label7
+            // OrderedItemButton
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 437);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 20);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Search By";
+            this.OrderedItemButton.Location = new System.Drawing.Point(1132, 600);
+            this.OrderedItemButton.Name = "OrderedItemButton";
+            this.OrderedItemButton.Size = new System.Drawing.Size(172, 44);
+            this.OrderedItemButton.TabIndex = 2;
+            this.OrderedItemButton.Text = "Ordered Item";
+            this.OrderedItemButton.UseVisualStyleBackColor = true;
+            this.OrderedItemButton.Click += new System.EventHandler(this.OrderedItemButton_Click);
             // 
             // CoffeeShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1698, 694);
+            this.Controls.Add(this.OrderedItemButton);
+            this.Controls.Add(this.InsertItem);
             this.Controls.Add(this.purchaseDataGridView);
             this.Controls.Add(this.groupBox1);
             this.Name = "CoffeeShop";
@@ -298,6 +322,8 @@
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Button InsertItem;
+        private System.Windows.Forms.Button OrderedItemButton;
     }
 }
 

@@ -166,7 +166,7 @@
             this.groupBox1.Controls.Add(this.idTextBox);
             this.groupBox1.Controls.Add(this.priceTextBox);
             this.groupBox1.Controls.Add(this.searchTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(344, 12);
+            this.groupBox1.Location = new System.Drawing.Point(313, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(626, 333);
             this.groupBox1.TabIndex = 3;
@@ -186,7 +186,7 @@
             // itemDataGridView
             // 
             this.itemDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.itemDataGridView.Location = new System.Drawing.Point(390, 365);
+            this.itemDataGridView.Location = new System.Drawing.Point(343, 351);
             this.itemDataGridView.Name = "itemDataGridView";
             this.itemDataGridView.RowTemplate.Height = 28;
             this.itemDataGridView.Size = new System.Drawing.Size(543, 287);
