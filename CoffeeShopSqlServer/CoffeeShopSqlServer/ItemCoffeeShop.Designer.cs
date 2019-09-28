@@ -35,13 +35,14 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.deleteTextBox = new System.Windows.Forms.TextBox();
+            this.idTextBox = new System.Windows.Forms.TextBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.ShowButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.itemDataGridView = new System.Windows.Forms.DataGridView();
+            this.UpdateButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -69,9 +70,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(42, 259);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 20);
+            this.label3.Size = new System.Drawing.Size(26, 20);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Delete By ID";
+            this.label3.Text = "ID";
             // 
             // label4
             // 
@@ -103,12 +104,12 @@
             this.searchTextBox.Size = new System.Drawing.Size(185, 26);
             this.searchTextBox.TabIndex = 5;
             // 
-            // deleteTextBox
+            // idTextBox
             // 
-            this.deleteTextBox.Location = new System.Drawing.Point(176, 253);
-            this.deleteTextBox.Name = "deleteTextBox";
-            this.deleteTextBox.Size = new System.Drawing.Size(185, 26);
-            this.deleteTextBox.TabIndex = 7;
+            this.idTextBox.Location = new System.Drawing.Point(176, 253);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(185, 26);
+            this.idTextBox.TabIndex = 7;
             // 
             // AddButton
             // 
@@ -132,24 +133,27 @@
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(415, 188);
+            this.SearchButton.Location = new System.Drawing.Point(415, 195);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(75, 33);
             this.SearchButton.TabIndex = 6;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(415, 249);
+            this.DeleteButton.Location = new System.Drawing.Point(514, 249);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 34);
             this.DeleteButton.TabIndex = 8;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.UpdateButton);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.DeleteButton);
             this.groupBox1.Controls.Add(this.label2);
@@ -159,12 +163,12 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.AddButton);
             this.groupBox1.Controls.Add(this.nameTextBox);
-            this.groupBox1.Controls.Add(this.deleteTextBox);
+            this.groupBox1.Controls.Add(this.idTextBox);
             this.groupBox1.Controls.Add(this.priceTextBox);
             this.groupBox1.Controls.Add(this.searchTextBox);
             this.groupBox1.Location = new System.Drawing.Point(344, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(500, 333);
+            this.groupBox1.Size = new System.Drawing.Size(626, 333);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Information";
@@ -172,11 +176,21 @@
             // itemDataGridView
             // 
             this.itemDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.itemDataGridView.Location = new System.Drawing.Point(162, 380);
+            this.itemDataGridView.Location = new System.Drawing.Point(269, 368);
             this.itemDataGridView.Name = "itemDataGridView";
             this.itemDataGridView.RowTemplate.Height = 28;
-            this.itemDataGridView.Size = new System.Drawing.Size(875, 287);
+            this.itemDataGridView.Size = new System.Drawing.Size(789, 287);
             this.itemDataGridView.TabIndex = 4;
+            // 
+            // UpdateButton
+            // 
+            this.UpdateButton.Location = new System.Drawing.Point(415, 249);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(75, 34);
+            this.UpdateButton.TabIndex = 9;
+            this.UpdateButton.Text = "Update";
+            this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // ItemCoffeeShop
             // 
@@ -203,12 +217,13 @@
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.TextBox searchTextBox;
-        private System.Windows.Forms.TextBox deleteTextBox;
+        private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button ShowButton;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView itemDataGridView;
+        private System.Windows.Forms.Button UpdateButton;
     }
 }

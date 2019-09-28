@@ -11,80 +11,68 @@ using System.Windows.Forms;
 
 namespace CoffeeShopSqlServer
 {
-    public partial class ItemCoffeeShop : Form
+    public partial class OrderCoffeeShop : Form
     {
-        public ItemCoffeeShop()
+        public OrderCoffeeShop()
         {
             InitializeComponent();
         }
-        private void AddItem()
+        private void AddOrder()
         {
             try
             {
                 string conn = @"Server=BRINTA-PC; Database=CoffeeShop; Integrated Security=true";
                 SqlConnection sqlConn = new SqlConnection(conn);
-                string command1 = @"select * from Item where Name='"+nameTextBox.Text+"'";
-                SqlCommand sqlCommand1 = new SqlCommand(command1,sqlConn);
+                string command = @"insert into OrderItem values('" + nameTextBox.Text + "',"+quantityTextBox.Text+"," + totalPriceTextBox.Text + ")";
+                SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
                 sqlConn.Open();
-                int executed = sqlCommand1.ExecuteNonQuery();
-                if(executed>0)
+                int isExecuted = sqlCommand.ExecuteNonQuery();
+                if (isExecuted > 0)
                 {
-                    MessageBox.Show("Item Name Already Exists");
+                    MessageBox.Show("Saved");
+                    string command2 = @"select * from OrderItem where Name='" + nameTextBox.Text + "'";
+                    SqlCommand sqlCommand2 = new SqlCommand(command2, sqlConn);
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand2);
+                    DataTable dataTable = new DataTable();
+                    sqlDataAdapter.Fill(dataTable);
+                    orderDataGridView.DataSource = dataTable;
                 }
                 else
                 {
-                    string command = @"insert into Item values('" + nameTextBox.Text + "'," + priceTextBox.Text + ")";
-                    SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
-                    
-                    int isExecuted = sqlCommand.ExecuteNonQuery();
-                    if (isExecuted > 0)
-                    {
-                        MessageBox.Show("Saved");
-                        string command2 = @"select * from Item where Name='" + nameTextBox.Text + "'";
-                        SqlCommand sqlCommand2 = new SqlCommand(command2, sqlConn);
-                        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand2);
-                        DataTable dataTable = new DataTable();
-                        sqlDataAdapter.Fill(dataTable);
-                        itemDataGridView.DataSource = dataTable;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error");
-                    }
-                    
+                    MessageBox.Show("Error");
                 }
                 sqlConn.Close();
-
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
         }
         private void AddButton_Click(object sender, EventArgs e)
         {
-            AddItem();
+            AddOrder();
             nameTextBox.Text = "";
-            priceTextBox.Text = "";
+            quantityTextBox.Text = "";
+            totalPriceTextBox.Text = "";
             searchTextBox.Text = "";
             idTextBox.Text = "";
         }
-        private void ShowItem()
+        private void ShowOrder()
         {
             try
             {
                 string sqlConn = @"Server=BRINTA-PC; Database=CoffeeShop; Integrated Security=true";
                 SqlConnection sqlConnection = new SqlConnection(sqlConn);
-                string command = @"select * from Item";
+                string command = @"select * from OrderItem";
                 SqlCommand sqlCommand = new SqlCommand(command, sqlConnection);
                 sqlConnection.Open();
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                 DataTable dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
-                itemDataGridView.DataSource = dataTable;
+                orderDataGridView.DataSource = dataTable;
                 if (dataTable.Rows.Count > 0)
                 {
-                    itemDataGridView.DataSource = dataTable;
+                    orderDataGridView.DataSource = dataTable;
                 }
                 else
                 {
@@ -96,24 +84,24 @@ namespace CoffeeShopSqlServer
             {
                 MessageBox.Show(e.Message);
             }
-
         }
         private void ShowButton_Click(object sender, EventArgs e)
         {
-            ShowItem();
+            ShowOrder();
             nameTextBox.Text = "";
-            priceTextBox.Text = "";
+            quantityTextBox.Text = "";
+            totalPriceTextBox.Text = "";
             searchTextBox.Text = "";
             idTextBox.Text = "";
-
         }
-        private void SearchItem()
+        private void SearchOrder()
         {
+
             try
             {
                 string sqlConn = @"Server=BRINTA-PC; Database=CoffeeShop; Integrated Security=true";
                 SqlConnection sqlConnection = new SqlConnection(sqlConn);
-                string command = @"select * from Item where Name='" + searchTextBox.Text + "'";
+                string command = @"select * from OrderItem where Name='" + searchTextBox.Text + "'";
                 SqlCommand sqlCommand = new SqlCommand(command, sqlConnection);
                 sqlConnection.Open();
 
@@ -122,7 +110,7 @@ namespace CoffeeShopSqlServer
                 sqlDataAdapter.Fill(dataTable);
                 if (dataTable.Rows.Count > 0)
                 {
-                    itemDataGridView.DataSource = dataTable;
+                    orderDataGridView.DataSource = dataTable;
                 }
                 else
                 {
@@ -130,68 +118,68 @@ namespace CoffeeShopSqlServer
                 }
                 sqlConnection.Close();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
-            
         }
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            SearchItem();
+            SearchOrder();
             nameTextBox.Text = "";
-            priceTextBox.Text = "";
+            quantityTextBox.Text = "";
+            totalPriceTextBox.Text = "";
             searchTextBox.Text = "";
             idTextBox.Text = "";
         }
-
-        private void UpdateItem()
+        private void UpdateOrder()
         {
             try
             {
                 string sqlConn = @"Server=BRINTA-PC; Database=CoffeeShop; Integrated Security=true";
                 SqlConnection sqlConnection = new SqlConnection(sqlConn);
-                string command = @"update Item set Name='" + nameTextBox.Text + "',Price=" + priceTextBox.Text + " where ID=" + idTextBox.Text + "";
+                string command = @"update OrderItem set Name='" + nameTextBox.Text + "',Quantity="+quantityTextBox.Text+",Total_Price=" + totalPriceTextBox.Text + " where ID=" + idTextBox.Text + "";
                 SqlCommand sqlCommand = new SqlCommand(command, sqlConnection);
-                string command2 = @"select * from Item where ID=" + idTextBox.Text + "";
+                string command2 = @"select * from OrderItem where ID=" + idTextBox.Text + "";
                 SqlCommand sqlCommand2 = new SqlCommand(command2, sqlConnection);
                 sqlConnection.Open();
                 int isExecuted = sqlCommand.ExecuteNonQuery();
                 if (isExecuted > 0)
                 {
-                    MessageBox.Show("Item Updated!");
+                    MessageBox.Show("Order Updated!");
                     SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand2);
                     DataTable dataTable = new DataTable();
                     sqlDataAdapter.Fill(dataTable);
-                    itemDataGridView.DataSource = dataTable;
+                    orderDataGridView.DataSource = dataTable;
                 }
                 else
                 {
-                    MessageBox.Show("Can Not Update Item!");
+                    MessageBox.Show("Can Not Update Order!");
                 }
 
                 sqlConnection.Close();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
         }
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            UpdateItem();
+            UpdateOrder();
             nameTextBox.Text = "";
-            priceTextBox.Text = "";
+            quantityTextBox.Text = "";
+            totalPriceTextBox.Text = "";
             searchTextBox.Text = "";
             idTextBox.Text = "";
         }
-        private void DeleteItem()
+        private void DeleteOrder()
         {
             try
             {
                 string sqlConn = @"Server=BRINTA-PC; Database=CoffeeShop; Integrated Security=true";
                 SqlConnection sqlConnection = new SqlConnection(sqlConn);
-                string command = @"delete from Item where ID="+idTextBox.Text+"";
+                string command = @"delete from OrderItem where ID=" + idTextBox.Text + "";
                 SqlCommand sqlCommand = new SqlCommand(command, sqlConnection);
                 sqlConnection.Open();
                 int isExecuted = sqlCommand.ExecuteNonQuery();
@@ -205,14 +193,19 @@ namespace CoffeeShopSqlServer
                 }
                 sqlConnection.Close();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
         }
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            DeleteItem();
+            DeleteOrder();
+            nameTextBox.Text = "";
+            quantityTextBox.Text = "";
+            totalPriceTextBox.Text = "";
+            searchTextBox.Text = "";
+            idTextBox.Text = "";
         }
     }
 }
