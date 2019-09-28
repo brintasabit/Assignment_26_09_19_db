@@ -23,30 +23,32 @@ namespace CoffeeShopSqlServer
             {
                 string conn = @"Server=BRINTA-PC; Database=CoffeeShop; Integrated Security=true";
                 SqlConnection sqlConn = new SqlConnection(conn);
-                
-                
-                
-                
-                string command = @"insert into Item values('" + nameTextBox.Text + "'," + priceTextBox.Text + ")";
+                string command = @"insert into Item (Name,Price) values('" + nameTextBox.Text + "'," + priceTextBox.Text + ")";
                 SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
+                
                 sqlConn.Open();
-                int isExecuted = sqlCommand.ExecuteNonQuery();
-                    if (isExecuted > 0)
-                    {
+                
+                int executed = sqlCommand.ExecuteNonQuery();
+                if (executed > 0)
+                {
+
                         MessageBox.Show("Saved");
-                        string command2 = @"select * from Item where Name='" + nameTextBox.Text + "'";
+                        string command2 = @"select * from Item where Name like '" + nameTextBox.Text + "'";
                         SqlCommand sqlCommand2 = new SqlCommand(command2, sqlConn);
                         SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand2);
                         DataTable dataTable = new DataTable();
                         sqlDataAdapter.Fill(dataTable);
                         itemDataGridView.DataSource = dataTable;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error");
-                    }
                     
-                
+                    
+
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+
+
                 sqlConn.Close();
 
             }
@@ -61,17 +63,47 @@ namespace CoffeeShopSqlServer
             {
                 string conn = @"Server=BRINTA-PC; Database=CoffeeShop; Integrated Security=true";
                 SqlConnection sqlConn = new SqlConnection(conn);
-                string command1 = @"select * from Item where Name like '" + nameTextBox.Text + "'";
-                SqlCommand sqlCommand1 = new SqlCommand(command1, sqlConn);
+                /* string command1 = @"select * from Item where Name like '" + nameTextBox.Text + "'";
+                 SqlCommand sqlCommand1 = new SqlCommand(command1, sqlConn);
+                 sqlConn.Open();
+                 int isExecuted = (int)sqlCommand1.ExecuteScalar();
+                 if (isExecuted > 0)
+                 {
+                     MessageBox.Show("Item Name Already Exists");
+                     nameTextBox.Text = "";
+                     priceTextBox.Text = "";
+                     searchTextBox.Text = "";
+                     idTextBox.Text = "";
+                     sqlConn.Close();
+
+                 }
+                 else
+                 {
+
+                     AddItem();
+                     nameTextBox.Text = "";
+                     priceTextBox.Text = "";
+                     searchTextBox.Text = "";
+                     idTextBox.Text = "";
+                 }
+                 */
+               
+                string command = @"select * from Item where Name='" + nameTextBox.Text + "'";
+                SqlCommand sqlCommand = new SqlCommand(command, sqlConn);
                 sqlConn.Open();
-                
-                int executed = (int)sqlCommand1.ExecuteScalar();
-                if (executed > 0)
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
                 {
-                    MessageBox.Show("Item Name Already Exists");
-                    
+                    // itemDataGridView.DataSource = dataTable;
+                    MessageBox.Show("Item Name Exists");
+                    nameTextBox.Text = "";
+                    priceTextBox.Text = "";
+                    searchTextBox.Text = "";
+                    idTextBox.Text = "";
                 }
-                
                 else
                 {
                     AddItem();
@@ -81,6 +113,8 @@ namespace CoffeeShopSqlServer
                     idTextBox.Text = "";
                 }
                 sqlConn.Close();
+
+
             }
             catch(Exception ex)
             {

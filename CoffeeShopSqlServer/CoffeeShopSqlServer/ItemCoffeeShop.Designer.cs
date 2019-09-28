@@ -41,8 +41,8 @@
             this.SearchButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.itemDataGridView = new System.Windows.Forms.DataGridView();
             this.UpdateButton = new System.Windows.Forms.Button();
+            this.itemDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -173,15 +173,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Information";
             // 
-            // itemDataGridView
-            // 
-            this.itemDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.itemDataGridView.Location = new System.Drawing.Point(269, 368);
-            this.itemDataGridView.Name = "itemDataGridView";
-            this.itemDataGridView.RowTemplate.Height = 28;
-            this.itemDataGridView.Size = new System.Drawing.Size(789, 287);
-            this.itemDataGridView.TabIndex = 4;
-            // 
             // UpdateButton
             // 
             this.UpdateButton.Location = new System.Drawing.Point(415, 249);
@@ -191,6 +182,15 @@
             this.UpdateButton.Text = "Update";
             this.UpdateButton.UseVisualStyleBackColor = true;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            // 
+            // itemDataGridView
+            // 
+            this.itemDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.itemDataGridView.Location = new System.Drawing.Point(390, 365);
+            this.itemDataGridView.Name = "itemDataGridView";
+            this.itemDataGridView.RowTemplate.Height = 28;
+            this.itemDataGridView.Size = new System.Drawing.Size(543, 287);
+            this.itemDataGridView.TabIndex = 4;
             // 
             // ItemCoffeeShop
             // 
